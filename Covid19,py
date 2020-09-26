@@ -1,0 +1,13 @@
+import pandas as pd
+import requests
+
+# Step 1 Data Collection
+url = 'https://en.wikipedia.org/wiki/COVID-19_pandemic_in_Hungary#covid19-container'
+req = requests.get(url)
+data_list = pd.read_html(req.text)
+target_df = data_list[3]
+
+print(target_df)
+
+#eport data to xlsx
+#target_df.to_excel(r'covid19_hungary.xlsx')
